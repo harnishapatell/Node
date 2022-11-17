@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Product</title>
+</head>
+<body>
+    <h2>Products</h2>
+    <a href="/addproduct">Add Product</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+        <%
+            if(product.length == 0)
+            {
+        %>
+                <tr>
+                    <td>No Products Found</td>
+                </tr>
+        <%
+            }
+        %>
+        <%
+            for (var i =0 ; i < product.length; i++)
+            {
+        %>
+                <tr>
+                    <td><%= product[i].name %></td><br/>
+                    <td><%= product[i].price %></td><br/>
+                    <td><img src="<%= product[i].image %>" width="100" height="100"></td>
+                    <!-- <td>
+                        <a href="/updateproduct/<%= product[i]._id %>" class="btn btn-primary">Update</a>
+                        <a href="/updateproduct/<%= product[i]._id %>" class="btn btn-danger">Delete</a>
+                    </td> -->
+                </tr>
+        <%
+            }
+        %>
+    </table>
+</body>
+</html>
